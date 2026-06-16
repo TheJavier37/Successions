@@ -1,3 +1,4 @@
+/**
 package edu.unl.cc;
 
 import edu.unl.cc.succesions.bussines.EvenNumberCalculatorUpToLimit;
@@ -22,7 +23,8 @@ public class Main {
         Successionable serie = new EvenNumberCalculatorUpToLimit(limit);
         Number result = serie.calculate();
 
-        System.out.println(((Printable)serie).print());
+        System.out.println(((Printable) serie).print());
         System.out.println("S = " + result);
     }
 }
+ Fuera de servicio, nuevo paquete view **/
