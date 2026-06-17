@@ -1,6 +1,7 @@
 package edu.unl.cc.successions.business;
 
 /**
+ * Serie 3
  * Representa la serie de primos elevados al cubo hasta N terminos
  * @author TheJavier37 (Javier Guarnizo)
  *

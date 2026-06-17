@@ -1,6 +1,7 @@
 package edu.unl.cc.successions.business;
 
 /**
+ * Serie 1
  * Representa la serie de numeros pares hasta un limite
  * @author TheJavier37 (Javier Guarnizo)
  *

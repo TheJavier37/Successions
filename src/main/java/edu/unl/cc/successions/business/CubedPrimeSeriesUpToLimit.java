@@ -1,6 +1,7 @@
 package edu.unl.cc.successions.business;
 
 /**
+ * Serie 2
  * Representa la serie de primos elevados al cubo hasta un limite
  * @author TheJavier37 (Javier Guarnizo)
  *
