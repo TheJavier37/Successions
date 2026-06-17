@@ -14,27 +14,27 @@ public abstract class TermBasedSuccession implements Successionable, Printable {
     protected Integer currentTerm;
     protected StringBuilder printableTerms;
 
-    @Override
-    public void setLimit(Number limit) {
-        if (limit == null) {
-            throw new IllegalArgumentException("limit cannot be null");
+    protected Integer validateLimit(Number value, String label) {
+        if (value == null) {
+            throw new IllegalArgumentException(label + " cannot be null");
         }
-        if (limit instanceof Integer) {
-            if (limit.intValue() <= 0) {
-                throw new IllegalArgumentException("terms count must be greater than zero");
+        if (value instanceof Integer) {
+            if (value.intValue() < 0) {
+                throw new IllegalArgumentException(label + " cannot be negative");
             }
-            this.finalTerm = (Integer) limit;
+            return value.intValue();
         } else {
-            throw new IllegalArgumentException("limit must be an integer");
+            throw new IllegalArgumentException(label + " must be an integer");
         }
     }
 
     @Override
+    public void setLimit(Number limit) {
+        this.finalTerm = validateLimit(limit, "Upper limit");
+    }
+
+    @Override
     public String print() {
-        String output = printableTerms.toString();
-        if (output.endsWith(" + ")) {
-            output = output.substring(0, output.length() - 3);
-        }
-        return output;
+        return this.printableTerms.toString();
     }
 }
