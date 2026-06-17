@@ -8,46 +8,50 @@ package edu.unl.cc.successions.business;
 public class CubedPrimeSeriesUpToLimit extends NumericLimitSuccession {
 
     public CubedPrimeSeriesUpToLimit(Integer limit) {
+        this(1, limit);
+    }
+
+    public CubedPrimeSeriesUpToLimit(Integer start, Integer limit) {
+        start = validateLimit(start, "Down limit");
         setLimit(limit);
-        currentTerm = 0;
+        this.currentTerm = nextTerm(start - 1).intValue();
         printableTerms = new StringBuilder("S = ");
     }
 
     @Override
     public Number calculate() {
         long result = 0;
-        this.currentTerm = this.nextTerm(this.currentTerm).intValue();
-        long cubedValue = (long) Math.pow(this.currentTerm, 3);
-        while (cubedValue <= this.limit) {
-            this.printableTerms.append(this.currentTerm).append("^3").append(" + ");
+        long cubedValue = (long) Math.pow(currentTerm, 3);
+        while (cubedValue <= limit) {
+            this.printableTerms.append(currentTerm).append("^3").append(" + ");
             result += cubedValue;
-            this.currentTerm = this.nextTerm(this.currentTerm).intValue();
-            cubedValue = (long) Math.pow(this.currentTerm, 3);
+            currentTerm = this.nextTerm(currentTerm).intValue();
+            cubedValue = (long) Math.pow(currentTerm, 3);
         }
         return result;
     }
 
     @Override
     public Number nextTerm(Number current) {
-        int next = current.intValue();
-        if (next == 0) {
-            return 1;
+        current = current.intValue() + 1;
+        if (current.intValue() == 1) {
+            return current;
         }
-        if (next == 1) {
-            return 2;
+        boolean isPrime = false;
+        while (!isPrime) {
+            isPrime = isPrime(current.intValue());
+            if (!isPrime) {
+                current = current.intValue() + 1;
+            }
         }
-        next++;
-        while (!isPrime(next)) {
-            next++;
-        }
-        return next;
+        return current;
     }
 
-    private boolean isPrime(int number) {
+    private boolean isPrime(Integer number) {
         if (number <= 1) {
             return false;
         }
-        for (int i = 2; i <= Math.sqrt(number); i++) {
+        for (int i = 2; i < number; i++) {
             if (number % i == 0) {
                 return false;
             }
