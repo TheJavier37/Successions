@@ -4,6 +4,9 @@ import java.util.Scanner;
 import edu.unl.cc.succession.business.EvenNumberCalculatorUpToLimit;
 import edu.unl.cc.succession.business.CubedPrimeSeriesUpToLimit;
 import edu.unl.cc.succession.business.CubedPrimeSeriesUpToNTerms;
+import edu.unl.cc.succession.business.EvenPoweredPrimeSeriesUpToLimit;
+import edu.unl.cc.succession.business.OddPoweredPrimeSeriesUpToNTerms;
+import edu.unl.cc.succession.business.EvenRootPrimeSeriesUpToLimit;
 import edu.unl.cc.succession.model.Printable;
 import edu.unl.cc.succession.model.Successionable;
 
@@ -20,13 +23,16 @@ public class SuccessionExecutor {
 
         while (!exit) {
             System.out.println("\n=============================================");
-            System.out.println("          SUCCESSION EXECUTOR SYSTEM         ");
+            System.out.println("        SISTEMA EJECUTOR DE SUCESIONES       ");
             System.out.println("=============================================");
-            System.out.println("1. Even Numbers Up To Limit");
-            System.out.println("2. Cubed Prime Series Up To Limit");
-            System.out.println("3. Cubed Prime Series Up To N Terms");
-            System.out.println("4. Exit");
-            System.out.print("Select an option: ");
+            System.out.println("1. Numeros pares hasta un limite");
+            System.out.println("2. Serie de primos al cubo hasta un limite");
+            System.out.println("3. Serie de primos al cubo hasta N terminos");
+            System.out.println("4. Serie de primos elevados por pares hasta un limite");
+            System.out.println("5. Serie de primos elevados a impares hasta N terminos");
+            System.out.println("6. Serie de primos elevados a la raiz de numeros pares hasta un limite");
+            System.out.println("0. Salir");
+            System.out.print("Seleccione una opcion: ");
 
             int option = input.nextInt();
             Successionable serie = null;
@@ -34,38 +40,60 @@ public class SuccessionExecutor {
             try {
                 switch (option) {
                     case 1:
-                        System.out.print("Enter the limit for the even numbers series: ");
+                        System.out.print("Ingrese el limite para la serie de numeros pares: ");
                         int evenLimit = input.nextInt();
                         serie = new EvenNumberCalculatorUpToLimit(evenLimit);
                         break;
 
                     case 2:
-                        System.out.print("Enter the value limit for the cubed prime series: ");
+                        System.out.print("Ingrese el limite de valor para la serie de primos al cubo: ");
                         int primeLimit = input.nextInt();
                         serie = new CubedPrimeSeriesUpToLimit(primeLimit);
                         break;
 
                     case 3:
-                        System.out.print("Enter the number of terms (N) for the cubed prime series: ");
+                        System.out.print("Ingrese la cantidad de terminos (N) para la serie de primos al cubo: ");
                         int termsCount = input.nextInt();
                         serie = new CubedPrimeSeriesUpToNTerms(termsCount);
                         break;
 
                     case 4:
-                        System.out.println("Exiting the system. Goodbye!");
+                        System.out.print("Ingrese el limite de valor para la serie de primos con potencias pares: ");
+                        int evenPowerLimit = input.nextInt();
+                        serie = new EvenPoweredPrimeSeriesUpToLimit(evenPowerLimit);
+                        break;
+
+                    case 5:
+                        System.out.print("Ingrese la cantidad de terminos (N) para la serie de primos con potencias impares: ");
+                        int oddPowerTerms = input.nextInt();
+                        serie = new OddPoweredPrimeSeriesUpToNTerms(oddPowerTerms);
+                        break;
+
+                    case 6:
+                        System.out.print("Ingrese el limite de valor para la serie de primos con raices pares: ");
+                        int evenRootLimit = input.nextInt();
+                        serie = new EvenRootPrimeSeriesUpToLimit(evenRootLimit);
+                        break;
+
+                    case 0:
+                        System.out.println("Saliendo del sistema. ¡Hasta luego!");
                         exit = true;
                         break;
 
+                    /**
+                     * Desarrolladores NeoCores encargados: Completar la integracion en el menu
+                     * para los casos restantes desde la serie 7 hasta la serie 10.
+                     */
                     default:
-                        System.out.println("Invalid option. Please choose a number between 1 and 4.");
+                        System.out.println("Opcion invalida. Por favor, seleccione una opcion valida.");
                         break;
                 }
 
                 if (serie != null) {
                     Number result = serie.calculate();
-                    System.out.println("\n--- Result ---");
+                    System.out.println("\n--- Resultado ---");
                     System.out.println(((Printable) serie).print());
-                    System.out.println("Total Sum = " + result);
+                    System.out.println("Suma Total = " + result);
                 }
 
             } catch (IllegalArgumentException e) {
