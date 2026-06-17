@@ -1,14 +1,14 @@
-package edu.unl.cc.successions.bussines;
+package edu.unl.cc.successions.business;
 
 /**
- * Representa la serie de primos elevados al cubo hasta N terminos
+ * Representa la serie de primos elevados al cubo hasta un limite
  * @author TheJavier37 (Javier Guarnizo)
  *
  */
-public class CubedPrimeSeriesUpToNTerms extends TermBasedSuccession {
+public class CubedPrimeSeriesUpToLimit extends NumericLimitSuccession {
 
-    public CubedPrimeSeriesUpToNTerms(Integer termsCount) {
-        setLimit(termsCount);
+    public CubedPrimeSeriesUpToLimit(Integer limit) {
+        setLimit(limit);
         currentTerm = 0;
         printableTerms = new StringBuilder("S = ");
     }
@@ -16,16 +16,13 @@ public class CubedPrimeSeriesUpToNTerms extends TermBasedSuccession {
     @Override
     public Number calculate() {
         long result = 0;
-        int termsGenerated = 0;
-
-        while (termsGenerated < this.finalTerm) {
-            this.currentTerm = this.nextTerm(this.currentTerm).intValue();
-            long cubedValue = (long) Math.pow(this.currentTerm, 3);
-
+        this.currentTerm = this.nextTerm(this.currentTerm).intValue();
+        long cubedValue = (long) Math.pow(this.currentTerm, 3);
+        while (cubedValue <= this.limit) {
             this.printableTerms.append(this.currentTerm).append("^3").append(" + ");
             result += cubedValue;
-
-            termsGenerated++;
+            this.currentTerm = this.nextTerm(this.currentTerm).intValue();
+            cubedValue = (long) Math.pow(this.currentTerm, 3);
         }
         return result;
     }

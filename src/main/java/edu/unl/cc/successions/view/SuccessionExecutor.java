@@ -1,9 +1,9 @@
 package edu.unl.cc.successions.view;
 
 import java.util.Scanner;
-import edu.unl.cc.successions.bussines.EvenNumberCalculatorUpToLimit;
-import edu.unl.cc.successions.bussines.CubedPrimeSeriesUpToLimit;
-import edu.unl.cc.successions.bussines.CubedPrimeSeriesUpToNTerms;
+import edu.unl.cc.successions.business.EvenNumberCalculatorUpToLimit;
+import edu.unl.cc.successions.business.CubedPrimeSeriesUpToLimit;
+import edu.unl.cc.successions.business.CubedPrimeSeriesUpToNTerms;
 import edu.unl.cc.successions.model.Printable;
 import edu.unl.cc.successions.model.Successionable;
 

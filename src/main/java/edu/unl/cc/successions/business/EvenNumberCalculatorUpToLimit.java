@@ -1,4 +1,4 @@
-package edu.unl.cc.successions.bussines;
+package edu.unl.cc.successions.business;
 
 /**
  * Representa la serie de numeros pares hasta un limite
@@ -8,15 +8,19 @@ package edu.unl.cc.successions.bussines;
 public class EvenNumberCalculatorUpToLimit extends NumericLimitSuccession {
 
     public EvenNumberCalculatorUpToLimit(Integer limit) {
+        this(0, limit);
+    }
+
+    public EvenNumberCalculatorUpToLimit(Integer start, Integer limit) {
+        start = validateLimit(start, "Down limit");
         setLimit(limit);
-        currentTerm = 0;
+        this.currentTerm = nextTerm(start).intValue();
         printableTerms = new StringBuilder("S = ");
     }
 
     @Override
     public Number calculate() {
         long result = 0;
-        this.currentTerm = this.nextTerm(this.currentTerm).intValue();
         while (currentTerm <= this.limit) {
             this.printableTerms.append(this.currentTerm).append(" + ");
             result += this.currentTerm;

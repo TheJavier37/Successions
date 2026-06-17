@@ -1,4 +1,4 @@
-package edu.unl.cc.successions.bussines;
+package edu.unl.cc.successions.business;
 
 import edu.unl.cc.successions.model.Printable;
 import edu.unl.cc.successions.model.Successionable;

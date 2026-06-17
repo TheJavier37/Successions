@@ -2253,9 +2253,9 @@
 											"parentStyle": true,
 											"left": -144,
 											"top": -128,
-											"width": 73.67724609375,
+											"width": 89.578125,
 											"height": 13,
-											"text": "(from Model)"
+											"text": "(from business)"
 										},
 										{
 											"_type": "LabelView",
@@ -2903,64 +2903,6 @@
 							}
 						}
 					]
-				},
-				{
-					"_type": "UMLClass",
-					"_id": "AAAAAAGezkjiulUZW1I=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "TermBasedSuccession",
-					"ownedElements": [
-						{
-							"_type": "UMLInterfaceRealization",
-							"_id": "AAAAAAGezk2sT1WIfSw=",
-							"_parent": {
-								"$ref": "AAAAAAGezkjiulUZW1I="
-							},
-							"source": {
-								"$ref": "AAAAAAGezkjiulUZW1I="
-							},
-							"target": {
-								"$ref": "AAAAAAGezDtA3XjZHqo="
-							}
-						},
-						{
-							"_type": "UMLInterfaceRealization",
-							"_id": "AAAAAAGezk2+Z1WZxFE=",
-							"_parent": {
-								"$ref": "AAAAAAGezkjiulUZW1I="
-							},
-							"source": {
-								"$ref": "AAAAAAGezkjiulUZW1I="
-							},
-							"target": {
-								"$ref": "AAAAAAGezEVN+3ksZ48="
-							}
-						}
-					],
-					"attributes": [
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAGezkxmlFVEhwI=",
-							"_parent": {
-								"$ref": "AAAAAAGezkjiulUZW1I="
-							},
-							"name": "finalTerm",
-							"visibility": "private",
-							"type": "Integer"
-						},
-						{
-							"_type": "UMLAttribute",
-							"_id": "AAAAAAGezkx36FVLL/g=",
-							"_parent": {
-								"$ref": "AAAAAAGezkjiulUZW1I="
-							},
-							"name": "currentTerm",
-							"visibility": "private",
-							"type": "Integer"
-						}
-					]
 				}
 			]
 		},
@@ -3298,6 +3240,64 @@
 															"target": {
 																"$ref": "AAAAAAGezkjiulUZW1I="
 															}
+														}
+													]
+												},
+												{
+													"_type": "UMLClass",
+													"_id": "AAAAAAGezkjiulUZW1I=",
+													"_parent": {
+														"$ref": "AAAAAAGezDdOWHhJRPc="
+													},
+													"name": "TermBasedSuccession",
+													"ownedElements": [
+														{
+															"_type": "UMLInterfaceRealization",
+															"_id": "AAAAAAGezk2sT1WIfSw=",
+															"_parent": {
+																"$ref": "AAAAAAGezkjiulUZW1I="
+															},
+															"source": {
+																"$ref": "AAAAAAGezkjiulUZW1I="
+															},
+															"target": {
+																"$ref": "AAAAAAGezDtA3XjZHqo="
+															}
+														},
+														{
+															"_type": "UMLInterfaceRealization",
+															"_id": "AAAAAAGezk2+Z1WZxFE=",
+															"_parent": {
+																"$ref": "AAAAAAGezkjiulUZW1I="
+															},
+															"source": {
+																"$ref": "AAAAAAGezkjiulUZW1I="
+															},
+															"target": {
+																"$ref": "AAAAAAGezEVN+3ksZ48="
+															}
+														}
+													],
+													"attributes": [
+														{
+															"_type": "UMLAttribute",
+															"_id": "AAAAAAGezkxmlFVEhwI=",
+															"_parent": {
+																"$ref": "AAAAAAGezkjiulUZW1I="
+															},
+															"name": "finalTerm",
+															"visibility": "private",
+															"type": "Integer"
+														},
+														{
+															"_type": "UMLAttribute",
+															"_id": "AAAAAAGezkx36FVLL/g=",
+															"_parent": {
+																"$ref": "AAAAAAGezkjiulUZW1I="
+															},
+															"name": "currentTerm",
+															"visibility": "private",
+															"type": "Integer"
 														}
 													]
 												}
