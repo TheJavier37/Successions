@@ -1,16 +1,16 @@
-package edu.unl.cc.succesions.bussines;
+package edu.unl.cc.successions.bussines;
 
-import edu.unl.cc.succesions.model.Printable;
-import edu.unl.cc.succesions.model.Successionable;
+import edu.unl.cc.successions.model.Printable;
+import edu.unl.cc.successions.model.Successionable;
 
 /**
- * Clase abstracta que representa una sucesion basada en un limite de valor
+ * Clase abstracta que representa una sucesion basada en una cantidad de terminos
  * @author TheJavier37 (Javier Guarnizo)
  *
  */
-public abstract class NumericLimitSuccession implements Successionable, Printable {
+public abstract class TermBasedSuccession implements Successionable, Printable {
 
-    protected Integer limit;
+    protected Integer finalTerm;
     protected Integer currentTerm;
     protected StringBuilder printableTerms;
 
@@ -20,10 +20,10 @@ public abstract class NumericLimitSuccession implements Successionable, Printabl
             throw new IllegalArgumentException("limit cannot be null");
         }
         if (limit instanceof Integer) {
-            if (limit.intValue() < 0) {
-                throw new IllegalArgumentException("limit cannot be negative");
+            if (limit.intValue() <= 0) {
+                throw new IllegalArgumentException("terms count must be greater than zero");
             }
-            this.limit = (Integer) limit;
+            this.finalTerm = (Integer) limit;
         } else {
             throw new IllegalArgumentException("limit must be an integer");
         }

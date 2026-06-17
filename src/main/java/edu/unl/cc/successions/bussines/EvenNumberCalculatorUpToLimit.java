@@ -1,4 +1,4 @@
-package edu.unl.cc.succesions.bussines;
+package edu.unl.cc.successions.bussines;
 
 /**
  * Representa la serie de numeros pares hasta un limite
