@@ -1,4 +1,4 @@
-package edu.unl.cc.successions.model;
+package edu.unl.cc.succession.model;
 
 public interface Printable {
 

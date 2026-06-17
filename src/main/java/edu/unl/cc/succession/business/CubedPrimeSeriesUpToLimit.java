@@ -1,4 +1,4 @@
-package edu.unl.cc.successions.business;
+package edu.unl.cc.succession.business;
 
 /**
  * Serie 2

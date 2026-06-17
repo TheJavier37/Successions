@@ -1,4 +1,4 @@
-package edu.unl.cc.successions.model;
+package edu.unl.cc.succession.model;
 
 /**
  * @author TheJavier37 (Javier Guarnizo)

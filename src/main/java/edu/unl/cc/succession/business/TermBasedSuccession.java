@@ -1,7 +1,7 @@
-package edu.unl.cc.successions.business;
+package edu.unl.cc.succession.business;
 
-import edu.unl.cc.successions.model.Printable;
-import edu.unl.cc.successions.model.Successionable;
+import edu.unl.cc.succession.model.Printable;
+import edu.unl.cc.succession.model.Successionable;
 
 /**
  * Clase abstracta que representa una sucesion basada en una cantidad de terminos

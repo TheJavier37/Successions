@@ -1,11 +1,11 @@
-package edu.unl.cc.successions.view;
+package edu.unl.cc.succession.view;
 
 import java.util.Scanner;
-import edu.unl.cc.successions.business.EvenNumberCalculatorUpToLimit;
-import edu.unl.cc.successions.business.CubedPrimeSeriesUpToLimit;
-import edu.unl.cc.successions.business.CubedPrimeSeriesUpToNTerms;
-import edu.unl.cc.successions.model.Printable;
-import edu.unl.cc.successions.model.Successionable;
+import edu.unl.cc.succession.business.EvenNumberCalculatorUpToLimit;
+import edu.unl.cc.succession.business.CubedPrimeSeriesUpToLimit;
+import edu.unl.cc.succession.business.CubedPrimeSeriesUpToNTerms;
+import edu.unl.cc.succession.model.Printable;
+import edu.unl.cc.succession.model.Successionable;
 
 /**
  * Menu interactivo para ejecutar las diferentes sucesiones numericas
