@@ -5,7 +5,7 @@ import edu.unl.cc.succession.common.SuccessionBase;
 /**
  * 7. Representa el cálculo de la Serie de números primos elevados a la potencia inversa del número primo hasta N términos
  * (S = 1^(1/1) + 3^(1/3) + 5^(1/5) + 7^(1/7) + 11^(1/9) + 13^(1/11)):
- * @author Darío Chillogallo, Kiara Condoy, Javier Guarnizo, Domenica Narvaez y José Valencia
+ * @author Domenica Narvaez
  */
 
 public class PrimeNumberWithPowCalculatorWithTerm extends SuccessionBase {
@@ -46,10 +46,5 @@ public class PrimeNumberWithPowCalculatorWithTerm extends SuccessionBase {
             next++;
         }
         return next;
-    }
-
-    @Override
-    public String print() {
-        return this.seriesText.toString();
     }
 }

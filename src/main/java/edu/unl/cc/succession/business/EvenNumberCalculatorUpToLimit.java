@@ -10,30 +10,16 @@ import edu.unl.cc.succession.common.SuccessionBase;
  */
 public class EvenNumberCalculatorUpToLimit extends SuccessionBase {
 
-    /**
-     * Constructor por defecto que inicializa la serie de numeros pares desde cero.
-     * @param limit El valor maximo permitido para los terminos de la serie.
-     */
     public EvenNumberCalculatorUpToLimit(Integer limit) {
         this(0, limit);
     }
 
-    /**
-     * Constructor sobrecargado que permite definir el punto de inicio de la serie.
-     * @param start El valor entero desde donde comenzara a buscarse el primer termino.
-     * @param limit El valor maximo permitido para los terminos de la serie.
-     */
     public EvenNumberCalculatorUpToLimit(Integer start, Integer limit) {
         super(limit);
         start = validateInput(start, "Down limit");
         this.currentTerm = nextTerm(start).intValue();
     }
 
-    /**
-     * Realiza el bucle de calculo sumando los numeros pares de la secuencia.
-     * El proceso se detiene cuando el termino actual supera el valor frontera establecido.
-     * @return La suma acumulada de todos los terminos validos generados.
-     */
     @Override
     public Number calculate() {
         long result = 0;
@@ -45,11 +31,6 @@ public class EvenNumberCalculatorUpToLimit extends SuccessionBase {
         return result;
     }
 
-    /**
-     * Calcula analiticamente cual es el siguiente numero par consecutivo.
-     * @param current El termino par actual sobre el cual se calculara el siguiente.
-     * @return El numero entero par inmediatamente posterior.
-     */
     @Override
     public Number nextTerm(Number current) {
         return current.intValue() + 2;

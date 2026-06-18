@@ -7,5 +7,5 @@ package edu.unl.cc.succession.business;
  * @author Dario "Monao" Chillogallo, Kisalo, TheJavier37, JsValencia, Domenica Naravez
  */
 
-public class PrimeSeriesPoweredToCubeToNTerm {
+public class CubicPrimesSumUpToNTerms {
 }
