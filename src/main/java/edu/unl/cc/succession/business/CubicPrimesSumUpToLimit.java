@@ -10,19 +10,10 @@ import edu.unl.cc.succession.common.SuccessionBase;
  */
 public class CubicPrimesSumUpToLimit extends SuccessionBase {
 
-    /**
-     * Constructor por defecto que inicializa la serie de primos desde el numero uno.
-     * @param limit El valor numerico maximo que puede alcanzar el resultado del cubo de un primo.
-     */
     public CubicPrimesSumUpToLimit(Integer limit) {
         this(1, limit);
     }
 
-    /**
-     * Constructor sobrecargado que permite definir un valor inicial para la busqueda de primos.
-     * @param start El numero entero inicial desde el cual comenzara la secuencia prima.
-     * @param limit El valor numerico maximo que puede alcanzar el resultado del cubo de un primo.
-     */
     public CubicPrimesSumUpToLimit(Integer start, Integer limit) {
         super(limit);
 
@@ -33,11 +24,6 @@ public class CubicPrimesSumUpToLimit extends SuccessionBase {
         this.currentTerm = nextTerm(start - 1).intValue();
     }
 
-    /**
-     * Realiza la iteracion y acumulacion de la suma de los primos elevados al cubo.
-     * Controla el freno del bucle evaluando si la potencia resulta menor o igual a la frontera.
-     * @return El resultado total de la suma de las potencias cubicas.
-     */
     @Override
     public Number calculate() {
         long result = 0;
@@ -51,12 +37,6 @@ public class CubicPrimesSumUpToLimit extends SuccessionBase {
         return result;
     }
 
-    /**
-     * Evalua secuencialmente los siguientes numeros enteros para encontrar el proximo primo.
-     * Utiliza el metodo de validacion centralizado en la clase madre para comprobar la primalidad.
-     * @param current El valor del primo actual.
-     * @return El siguiente numero primo valido dentro del orden logico.
-     */
     @Override
     public Number nextTerm(Number current) {
         current = current.intValue() + 1;
