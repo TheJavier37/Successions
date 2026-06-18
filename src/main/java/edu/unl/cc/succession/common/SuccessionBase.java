@@ -19,11 +19,15 @@ public abstract class SuccessionBase implements Successionable, Printable {
         this.seriesText = new StringBuilder("S = ");
     }
 
+    public SuccessionBase() {
+
+    }
+
     protected Integer validateInput(Number value, String label) {
-        if  (value == null) {
+        if (value == null) {
             throw new IllegalArgumentException(label + " cannot be null");
         }
-        if  (value instanceof Integer) {
+        if (value instanceof Integer) {
             if (value.intValue() < 0) {
                 throw new IllegalArgumentException(label + " cannot be negative");
             }
@@ -56,6 +60,14 @@ public abstract class SuccessionBase implements Successionable, Printable {
     @Override
     public abstract Number nextTerm(Number current);
 
+    /**
+     * Implementacion por defecto del metodo print.
+     * Al no ser abstracto, las clases hijas pueden usarlo directamente o heredar su comportamiento.
+     *
+     * @return La cadena de caracteres que representa la serie.
+     */
     @Override
-    public abstract String print();
+    public String print() {
+        return this.seriesText != null ? this.seriesText.toString() : "";
+    }
 }
