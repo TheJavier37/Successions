@@ -52,28 +52,38 @@ public class SuccessionExecutor {
                         break;
 
                     case 3:
+                        //Darío, editas el case 3 y case 4 acorde a como estén las clases implementadas
+
+                        /**
                         System.out.print("Ingrese la cantidad de terminos (N) para la serie de primos al cubo: ");
                         int termsCount = input.nextInt();
                         serie = new CubedPrimeSeriesUpToNTerms(termsCount);
                         break;
+                        **/
 
                     case 4:
+                        /**
                         System.out.print("Ingrese el limite de valor para la serie de primos con potencias pares: ");
                         int evenPowerLimit = input.nextInt();
                         serie = new EvenPoweredPrimeSeriesUpToLimit(evenPowerLimit);
                         break;
+                         **/
 
                     case 5:
+                        /**
                         System.out.print("Ingrese la cantidad de terminos (N) para la serie de primos con potencias impares: ");
                         int oddPowerTerms = input.nextInt();
                         serie = new OddPoweredPrimeSeriesUpToNTerms(oddPowerTerms);
                         break;
+                         **/
 
                     case 6:
+                        /**
                         System.out.print("Ingrese el limite de valor para la serie de primos con raices pares: ");
                         int evenRootLimit = input.nextInt();
                         serie = new EvenRootPrimeSeriesUpToLimit(evenRootLimit);
                         break;
+                        **/
 
                     case 0:
                         System.out.println("Saliendo del sistema. ¡Hasta luego!");
