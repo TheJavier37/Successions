@@ -9,7 +9,11 @@ import edu.unl.cc.succession.common.SuccessionBase;
  * @author kisalo (Kiara Condoy)
  **/
 
-public class EvenRootPrimeSeriesUpToLimit extends SuccessionBase {
+public class PrimesEvenRootSumUpToLimit extends SuccessionBase {
+
+    public PrimesEvenRootSumUpToLimit(Integer boundaryValue) {
+        super(boundaryValue);
+    }
 
     @Override
     protected Integer validateInput(Number value, String label) {

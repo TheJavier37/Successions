@@ -9,9 +9,9 @@ import edu.unl.cc.succession.common.SuccessionBase;
  * @author kisalo (Kiara Condoy)
  **/
 
-public class OddPoweredPrimeSeriesUpToNTerms extends SuccessionBase {
+public class PrimesOddPowerSumUpToNTerms extends SuccessionBase {
 
-    public OddPoweredPrimeSeriesUpToNTerms(Integer boundaryValue) {
+    public PrimesOddPowerSumUpToNTerms(Integer boundaryValue) {
         super(boundaryValue);
     }
 
