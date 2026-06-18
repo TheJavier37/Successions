@@ -2,7 +2,7 @@ package edu.unl.cc.succession.view;
 
 import java.util.Scanner;
 import edu.unl.cc.succession.business.EvenNumberCalculatorUpToLimit;
-import edu.unl.cc.succession.business.CubedPrimeSeriesUpToLimit;
+import edu.unl.cc.succession.business.CubicPrimesSumUpToLimit;
 import edu.unl.cc.succession.business.CubedPrimeSeriesUpToNTerms;
 import edu.unl.cc.succession.business.EvenPoweredPrimeSeriesUpToLimit;
 import edu.unl.cc.succession.business.OddPoweredPrimeSeriesUpToNTerms;
@@ -48,7 +48,7 @@ public class SuccessionExecutor {
                     case 2:
                         System.out.print("Ingrese el limite de valor para la serie de primos al cubo: ");
                         int primeLimit = input.nextInt();
-                        serie = new CubedPrimeSeriesUpToLimit(primeLimit);
+                        serie = new CubicPrimesSumUpToLimit(primeLimit);
                         break;
 
                     case 3:
