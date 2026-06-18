@@ -25,6 +25,10 @@ public class CubicPrimesSumUpToLimit extends SuccessionBase {
      */
     public CubicPrimesSumUpToLimit(Integer start, Integer limit) {
         super(limit);
+
+        if (start < 2) {
+            start = 2;
+        }
         start = validateInput(start, "Down limit");
         this.currentTerm = nextTerm(start - 1).intValue();
     }
