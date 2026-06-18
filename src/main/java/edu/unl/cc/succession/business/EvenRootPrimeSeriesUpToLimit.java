@@ -1,79 +1,73 @@
 package edu.unl.cc.succession.business;
 
+import edu.unl.cc.succession.common.SuccessionBase;
+
 /**
  * Serie 6
- * Representa la serie de primos elevados a la raiz de numeros pares hasta un limite
+ * Representa la serie de numeros primos elevados a la raiz de numeros pares hasta un limite
  * S = 1^(1/2) + 3^(1/4) + 5^(1/6) + 7^(1/8) + ... + N
- * @author TheJavier37 (Javier Guarnizo)
- *
- */
-public class EvenRootPrimeSeriesUpToLimit extends NumericLimitSuccession {
+ * @author kisalo (Kiara Condoy)
+ **/
 
-    private Integer currentDenominator;
+public class EvenRootPrimeSeriesUpToLimit extends SuccessionBase {
 
-    public EvenRootPrimeSeriesUpToLimit(Integer limit) {
-        this(1, limit);
+    @Override
+    protected Integer validateInput(Number value, String label) {
+        return super.validateInput(value, label);
     }
 
-    public EvenRootPrimeSeriesUpToLimit(Integer start, Integer limit) {
-        start = validateLimit(start, "Down limit");
-        setLimit(limit);
-        this.currentTerm = nextTerm(start - 1).intValue();
-        this.currentDenominator = 2;
-        this.printableTerms = new StringBuilder("S = ");
+    @Override
+    protected boolean isPrime(Integer number) {
+        return super.isPrime(number);
+    }
+
+    @Override
+    public void setLimit(Number limit) {
+        super.setLimit(limit);
     }
 
     @Override
     public Number calculate() {
         long result = 0;
-        double exponent = 1.0 / this.currentDenominator;
-        long rootedValue = (long) Math.pow(this.currentTerm, exponent);
+        int exponentDenominator = 2;
+        final double exponentNumerator = 1;
+        double currentValue =  Math.pow(nextTerm(1).intValue(), exponentNumerator/exponentDenominator);
 
-        while (rootedValue <= this.limit) {
-            this.printableTerms.append(this.currentTerm)
-                    .append("^(1/")
-                    .append(this.currentDenominator)
-                    .append(") + ");
+        while (currentValue<boundaryValue){
+            this.seriesText.append(currentTerm).append("^(")
+                    .append(exponentNumerator).append("/")
+                    .append(exponentDenominator).append(" + ");
 
-            result += rootedValue;
+            result += (long)currentValue;
+            currentTerm = nextTerm(currentTerm).intValue();
+            exponentDenominator += 2;
+            currentValue = Math.pow(currentTerm,exponentNumerator/exponentDenominator);
 
-            this.currentTerm = this.nextTerm(this.currentTerm).intValue();
-            this.currentDenominator += 2;
-
-            exponent = 1.0 / this.currentDenominator;
-            rootedValue = (long) Math.pow(this.currentTerm, exponent);
+            if (seriesText.length() >= 3) {
+                seriesText.setLength(seriesText.length() - 3);
+            }
         }
+
         return result;
     }
 
+    /**
+     * Method that calculates the next prime number (the base number) for the succession
+     * @param current inicial term
+     * @return next term
+     */
     @Override
     public Number nextTerm(Number current) {
-        current = current.intValue() + 1;
-        if (current.intValue() == 1) {
-            return current;
+        this.currentTerm = current.intValue() + 1;
+
+        while (!isPrime(this.currentTerm)) {
+            this.currentTerm++;
         }
-        if (current.intValue() == 2) {
-            current = 3;
-        }
-        boolean isPrime = false;
-        while (!isPrime) {
-            isPrime = isPrime(current.intValue());
-            if (!isPrime) {
-                current = current.intValue() + 1;
-            }
-        }
-        return current;
+        return this.currentTerm;
     }
 
-    private boolean isPrime(Integer number) {
-        if (number <= 1) {
-            return false;
-        }
-        for (int i = 2; i < number; i++) {
-            if (number % i == 0) {
-                return false;
-            }
-        }
-        return true;
+    @Override
+    public String print() {
+        return this.seriesText.toString();
     }
 }
