@@ -55,8 +55,8 @@ public class SuccessionExecutor {
 
                     case 2:
                         System.out.print("Ingrese el limite de valor para la serie de primos al cubo: ");
-                        int primeLimit9 = input.nextInt();
-                        serie = new CubicPrimesSumUpToLimit(primeLimit);
+                        int cubicPrimeLimit = input.nextInt();
+                        serie = new CubicPrimesSumUpToLimit(cubicPrimeLimit);
                         break;
 
                     case 3:
