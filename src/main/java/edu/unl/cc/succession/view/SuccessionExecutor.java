@@ -1,5 +1,6 @@
 package edu.unl.cc.succession.view;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import edu.unl.cc.succession.business.*;
@@ -7,7 +8,7 @@ import edu.unl.cc.succession.model.Printable;
 import edu.unl.cc.succession.model.Successionable;
 
 /**
- * Menu interactivo para ejecutar las diferentes sucesiones numericas
+ * Menu interactivo blindado para ejecutar las diferentes sucesiones numericas
  * @author TheJavier37 (Javier Guarnizo)
  *
  */
@@ -34,90 +35,74 @@ public class SuccessionExecutor {
             System.out.println("0. Salir");
             System.out.print("Seleccione una opcion: ");
 
-            int option = input.nextInt();
+            int option = readSecureInt(input);
+            if (option == -1) continue;
+
             Successionable serie = null;
 
             try {
                 switch (option) {
                     case 1:
                         System.out.print("Ingrese el limite para la serie de numeros pares: ");
-                        int evenLimit = input.nextInt();
-                        serie = new EvenNumberCalculatorUpToLimit(0, evenLimit);
+                        int evenLimit = readSecureInt(input);
+                        if (evenLimit != -1) serie = new EvenNumberCalculatorUpToLimit(0, evenLimit);
                         break;
 
                     case 2:
                         System.out.print("Ingrese el limite de valor para la serie de primos al cubo: ");
-                        int cubicPrimeLimit = input.nextInt();
-                        serie = new CubicPrimesSumUpToLimit(2, cubicPrimeLimit);
+                        int cubicPrimeLimit = readSecureInt(input);
+                        if (cubicPrimeLimit != -1) serie = new CubicPrimesSumUpToLimit(2, cubicPrimeLimit);
                         break;
 
                     case 3:
-                        //Darío, editas el case 3 y case 4 acorde a como estén las clases implementadas
-
-                        /**
-                        System.out.print("Ingrese la cantidad de terminos (N) para la serie de primos al cubo: ");
-                        int termsCount = input.nextInt();
-                        serie = new CubedPrimeSeriesUpToNTerms(termsCount);
                         break;
-                        **/
 
                     case 4:
-                        /**
-                        System.out.print("Ingrese el limite de valor para la serie de primos con potencias pares: ");
-                        int evenPowerLimit = input.nextInt();
-                        serie = new EvenPoweredPrimeSeriesUpToLimit(evenPowerLimit);
                         break;
-                         **/
 
                     case 5:
                         System.out.print("Ingrese la cantidad de terminos (N) para la serie de primos con potencias impares: ");
-                        int oddPowerTerms = input.nextInt();
-                        serie = new PrimesOddPowerSumUpToNTerms(true, oddPowerTerms);
+                        int oddPowerTerms = readSecureInt(input);
+                        if (oddPowerTerms != -1) serie = new PrimesOddPowerSumUpToNTerms(true, oddPowerTerms);
                         break;
 
                     case 6:
                         System.out.print("Ingrese el limite de valor para la serie de primos con raices pares: ");
-                        int evenRootLimit = input.nextInt();
-                        serie = new PrimesEvenRootSumUpToLimit(true, evenRootLimit);
+                        int evenRootLimit = readSecureInt(input);
+                        if (evenRootLimit != -1) serie = new PrimesEvenRootSumUpToLimit(true, evenRootLimit);
                         break;
 
                     case 7:
                         System.out.print("Ingrese la cantidad de terminos (N) para la serie de primos con raices impares: ");
-                        int oddRootTerms = input.nextInt();
-                        serie = new PrimeNumberWithPowCalculatorWithTerm(oddRootTerms);
+                        int oddRootTerms = readSecureInt(input);
+                        if (oddRootTerms != -1) serie = new PrimeNumberWithPowCalculatorWithTerm(oddRootTerms);
                         break;
 
                     case 8:
                         System.out.print("Ingrese la cantidad de terminos (N) para la serie de primos con raiz cubica: ");
-                        int cubicRootTerms = input.nextInt();
-                        serie = new PrimesCubicRootSumUpToNTerms(cubicRootTerms);
+                        int cubicRootTerms = readSecureInt(input);
+                        if (cubicRootTerms != -1) serie = new PrimesCubicRootSumUpToNTerms(cubicRootTerms);
                         break;
 
                     case 9:
-                        /**
                         System.out.print("Ingrese el limite de valor para la serie de primos elevados a la raiz cuadrada: ");
-                        int sqrtPrimeLimit = input.nextInt();
-                        serie = new PrimesSquareRootSumUpToLimit(sqrtPrimeLimit);
+                        int sqrtPrimeLimit = readSecureInt(input);
+                        if (sqrtPrimeLimit != -1) serie = new PrimesSquareRootSumUpToLimit(sqrtPrimeLimit);
                         break;
-                        */
+
                     case 10:
-                        /**
                         System.out.print("Ingrese el limite de valor para la serie de primos: ");
-                        int simplePrimeLimit = input.nextInt();
-                        serie = new PrimesSumUpToLimit(simplePrimeLimit);
+                        int simplePrimeLimit = readSecureInt(input);
+                        if (simplePrimeLimit != -1) serie = new PrimesSumUpToLimit(simplePrimeLimit);
                         break;
-                        **/
+
                     case 0:
-                        System.out.println("Saliendo del sistema. ¡Hasta luego!");
+                        System.out.println("\n[SISTEMA] Saliendo del sistema de sucesiones. ¡Hasta luego!");
                         exit = true;
                         break;
 
-                    /*
-                     * Desarrolladores NeoCores encargados: Completar la integracion en el menu
-                     * para los casos restantes desde la serie 7 hasta la serie 10.
-                     */
                     default:
-                        System.out.println("Opcion invalida. Por favor, seleccione una opcion valida.");
+                        showCustomError("OPCION INVALIDA", "La opcion seleccionada (" + option + ") no se encuentra en el menu.");
                         break;
                 }
 
@@ -129,9 +114,34 @@ public class SuccessionExecutor {
                 }
 
             } catch (IllegalArgumentException e) {
-                System.out.println("\n[ERROR] " + e.getMessage());
+                showCustomError("RESTRICCION DE NEGATIVOS", e.getMessage());
             }
         }
         input.close();
+    }
+
+    /**
+     * Captura de forma segura un entero desde la consola, previniendo el ingreso de texto
+     * @param scanner Instancia de entrada activa
+     * @return El numero entero digitado, o -1 si ocurrio una excepcion de formato
+     */
+    private static int readSecureInt(Scanner scanner) {
+        try {
+            return scanner.nextInt();
+        } catch (InputMismatchException e) {
+            showCustomError("ENTRADA NO VALIDA", "Se detecto texto o caracteres no numericos. Solo se permiten numeros enteros.");
+            scanner.nextLine();
+            return -1;
+        }
+    }
+
+    /**
+     * Muestra en consola un recuadro de alerta estructurado ante cualquier error del sistema
+     */
+    private static void showCustomError(String errorType, String message) {
+        System.out.println("\n┌──────────────────────────────────────────────────────────────────────────────────────┐");
+        System.out.println("  ERROR: " + errorType);
+        System.out.println("  DETALLE: " + message);
+        System.out.println("└──────────────────────────────────────────────────────────────────────────────────────┘");
     }
 }
