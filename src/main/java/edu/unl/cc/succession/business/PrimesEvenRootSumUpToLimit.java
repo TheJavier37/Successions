@@ -11,14 +11,10 @@ import edu.unl.cc.succession.common.SuccessionBase;
 
 public class PrimesEvenRootSumUpToLimit extends SuccessionBase {
 
-    public PrimesEvenRootSumUpToLimit(Integer boundaryValue) {
-        super(boundaryValue);
+    public PrimesEvenRootSumUpToLimit(boolean isPrime, Integer boundaryValue) {
+        super(boundaryValue, isPrime);
     }
 
-    /**
-     * Method that calculates primes even root sum up to a limit
-     * @return the sum
-     */
     @Override
     public Number calculate() {
         long result = 0;
@@ -41,11 +37,6 @@ public class PrimesEvenRootSumUpToLimit extends SuccessionBase {
         return result;
     }
 
-    /**
-     * Method that calculates the next prime number (the base number) for the succession
-     * @param current inicial term
-     * @return next term
-     */
     @Override
     public Number nextTerm(Number current) {
         this.currentTerm = current.intValue() + 1;

@@ -72,13 +72,13 @@ public class SuccessionExecutor {
                     case 5:
                         System.out.print("Ingrese la cantidad de terminos (N) para la serie de primos con potencias impares: ");
                         int oddPowerTerms = input.nextInt();
-                        serie = new PrimesOddPowerSumUpToNTerms(oddPowerTerms);
+                        serie = new PrimesOddPowerSumUpToNTerms(true, oddPowerTerms);
                         break;
 
                     case 6:
                         System.out.print("Ingrese el limite de valor para la serie de primos con raices pares: ");
                         int evenRootLimit = input.nextInt();
-                        serie = new PrimesEvenRootSumUpToLimit(evenRootLimit);
+                        serie = new PrimesEvenRootSumUpToLimit(true, evenRootLimit);
                         break;
 
                     case 7:
@@ -94,17 +94,19 @@ public class SuccessionExecutor {
                         break;
 
                     case 9:
+                        /**
                         System.out.print("Ingrese el limite de valor para la serie de primos elevados a la raiz cuadrada: ");
                         int sqrtPrimeLimit = input.nextInt();
                         serie = new PrimesSquareRootSumUpToLimit(sqrtPrimeLimit);
                         break;
-
+                        */
                     case 10:
+                        /**
                         System.out.print("Ingrese el limite de valor para la serie de primos: ");
                         int simplePrimeLimit = input.nextInt();
                         serie = new PrimesSumUpToLimit(simplePrimeLimit);
                         break;
-
+                        **/
                     case 0:
                         System.out.println("Saliendo del sistema. ¡Hasta luego!");
                         exit = true;
