@@ -24,11 +24,9 @@ public class EvenNumberCalculatorUpToLimit extends SuccessionBase {
      * @param limit El valor maximo permitido para los terminos de la serie.
      */
     public EvenNumberCalculatorUpToLimit(Integer start, Integer limit) {
-        super();
+        super(limit);
         start = validateInput(start, "Down limit");
-        setLimit(limit);
         this.currentTerm = nextTerm(start).intValue();
-        this.seriesText = new StringBuilder("S = ");
     }
 
     /**

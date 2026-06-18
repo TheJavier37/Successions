@@ -24,11 +24,9 @@ public class CubicPrimesSumUpToLimit extends SuccessionBase {
      * @param limit El valor numerico maximo que puede alcanzar el resultado del cubo de un primo.
      */
     public CubicPrimesSumUpToLimit(Integer start, Integer limit) {
-        super();
+        super(limit);
         start = validateInput(start, "Down limit");
-        setLimit(limit);
         this.currentTerm = nextTerm(start - 1).intValue();
-        this.seriesText = new StringBuilder("S = ");
     }
 
     /**
