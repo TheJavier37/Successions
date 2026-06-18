@@ -5,7 +5,7 @@ import edu.unl.cc.succession.common.SuccessionBase;
 /**
  * 8. Representa el cálculo de la Serie de primos elevados a la raiz cúbica hasta un n términos
  * (S = 1^(1/3) + 3^(1/3) + 5^(1/3) + 7^(1/3) + 11^(1/3) + 13^(1/3) =)
- * @author Darío Chillogallo, Kiara Condoy, Javier Guarnizo, Domenica Narvaez y José Valencia
+ * @author Domenica Narvaez
  */
 
 public class PrimesCubicRootSumUpToNTerms extends SuccessionBase {
@@ -43,10 +43,5 @@ public class PrimesCubicRootSumUpToNTerms extends SuccessionBase {
             next++;
         }
         return next;
-    }
-
-    @Override
-    public String print() {
-        return this.seriesText.toString();
     }
 }
