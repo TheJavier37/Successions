@@ -11,20 +11,16 @@ import edu.unl.cc.succession.common.SuccessionBase;
 
 public class PrimesEvenRootSumUpToLimit extends SuccessionBase {
 
-    public PrimesEvenRootSumUpToLimit(Integer boundaryValue) {
-        super(boundaryValue);
+    public PrimesEvenRootSumUpToLimit(boolean isPrime, Integer boundaryValue) {
+        super(boundaryValue, isPrime);
     }
 
-    /**
-     * Method that calculates primes even root sum up to a limit
-     * @return the sum
-     */
     @Override
     public Number calculate() {
         long result = 0;
         int exponentDenominator = 2;
         final double exponentNumerator = 1;
-        double currentValue =  Math.pow(nextTerm(1).intValue(), exponentNumerator/exponentDenominator);
+        double currentValue =  Math.pow(currentTerm, exponentNumerator / exponentDenominator);
 
         while (currentValue<boundaryValue){
             this.seriesText.append(currentTerm).append("^(")
@@ -34,25 +30,19 @@ public class PrimesEvenRootSumUpToLimit extends SuccessionBase {
             result += (long)currentValue;
             currentTerm = nextTerm(currentTerm).intValue();
             exponentDenominator += 2;
-            currentValue = Math.pow(currentTerm,exponentNumerator/exponentDenominator);
+            currentValue = Math.pow(currentTerm, exponentNumerator / exponentDenominator);
 
         }
 
         return result;
     }
 
-    /**
-     * Method that calculates the next prime number (the base number) for the succession
-     * @param current inicial term
-     * @return next term
-     */
     @Override
     public Number nextTerm(Number current) {
-        this.currentTerm = current.intValue() + 1;
-
-        while (!isPrime(this.currentTerm)) {
-            this.currentTerm++;
+        int value = current.intValue() + 1;
+        while (!isPrime(value)) {
+            value++;
         }
-        return this.currentTerm;
+        return value;
     }
 }

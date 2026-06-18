@@ -11,9 +11,14 @@ public abstract class SuccessionBase implements Successionable, Printable {
     protected Integer boundaryValue;
     protected Integer currentTerm;
     protected StringBuilder seriesText;
+    protected boolean isPrime;
 
     public SuccessionBase(Integer boundaryValue) {
         this(1, boundaryValue);
+    }
+
+    public SuccessionBase(Integer boundaryValue, boolean isPrime) {
+        this(isPrime ? 2 : 1, boundaryValue);
     }
 
     public SuccessionBase(Integer start, Integer boundaryValue) {
@@ -78,4 +83,3 @@ public abstract class SuccessionBase implements Successionable, Printable {
         return this.seriesText != null ? this.seriesText.toString() : "";
     }
 }
-

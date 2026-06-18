@@ -24,7 +24,7 @@ public class CubicPrimesSumUpToNTerms extends SuccessionBase {
     }
 
     /**
-     * method that calculates the sum of the entire serie and create the string
+     * method that calculates the sum of the entire serie and create the string:
      * @return
      */
     @Override

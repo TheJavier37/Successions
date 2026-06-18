@@ -5,36 +5,38 @@ import edu.unl.cc.succession.common.SuccessionBase;
 /**
  * Serie 2
  * Representa la serie de numeros primos elevados al cubo hasta un limite de valor.
- * S = 1^3 + 2^3 + 3^3 + 5^3 + ... + N
+ * S = 2^3 + 3^3 + 5^3 + ... + N
  * @author TheJavier37 (Javier Guarnizo)
  */
 public class CubicPrimesSumUpToLimit extends SuccessionBase {
 
-    public CubicPrimesSumUpToLimit(Integer limit) {
-        this(1, limit);
-    }
-
     public CubicPrimesSumUpToLimit(Integer start, Integer limit) {
-        super(limit);
-
-        if (start < 2) {
-            start = 2;
-        }
+        super(2,limit);
         start = validateInput(start, "Down limit");
         this.currentTerm = nextTerm(start - 1).intValue();
     }
 
     @Override
     public Number calculate() {
-        long result = 0;
-        long cubedValue = (long) Math.pow(this.currentTerm, 3);
-        while (cubedValue <= this.boundaryValue) {
-            this.seriesText.append(this.currentTerm).append("^3").append(" + ");
-            result += cubedValue;
-            this.currentTerm = this.nextTerm(this.currentTerm).intValue();
-            cubedValue = (long) Math.pow(this.currentTerm, 3);
+        int sum = 0;
+        Integer term = this.currentTerm;
+
+        while (term <= this.boundaryValue) {
+            int cubicValue = (int) Math.pow(term, 3);
+
+            if (sum + cubicValue > this.boundaryValue) {
+                break;
+            }
+
+            sum += cubicValue;
+            this.seriesText.append(term).append("^3 + ");
+
+            term = nextTerm(term).intValue();
         }
-        return result;
+
+        this.currentTerm = term;
+
+        return sum;
     }
 
     @Override

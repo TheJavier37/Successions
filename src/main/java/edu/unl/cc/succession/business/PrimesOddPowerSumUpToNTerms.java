@@ -11,23 +11,18 @@ import edu.unl.cc.succession.common.SuccessionBase;
 
 public class PrimesOddPowerSumUpToNTerms extends SuccessionBase {
 
-    public PrimesOddPowerSumUpToNTerms(Integer boundaryValue) {
-        super(boundaryValue);
+    public PrimesOddPowerSumUpToNTerms(boolean isPrime, Integer boundaryValue) {
+        super(boundaryValue, isPrime);
     }
 
-    /**
-     * Meth
-     * @return
-     */
     @Override
     public Number calculate() {
         long result = 0;
         int terms = 0;
         int exponent = 1;
-        currentTerm = 1;
         while (terms < boundaryValue){
             this.seriesText.append(currentTerm).append("^")
-                    .append(exponent);
+                    .append(exponent).append(" + ");
 
             result += (long) Math.pow(currentTerm,exponent);
             currentTerm = nextTerm(currentTerm).intValue();
@@ -37,18 +32,13 @@ public class PrimesOddPowerSumUpToNTerms extends SuccessionBase {
         return result;
     }
 
-    /**
-     * Method that calculates the next prime number (the base number) for the succession
-     * @param current inicial term
-     * @return next term
-     */
     @Override
     public Number nextTerm(Number current) {
-        this.currentTerm = current.intValue() + 1;
+        currentTerm = current.intValue() + 1;
 
-        while (!isPrime(this.currentTerm)) {
-            this.currentTerm++;
+        while (!isPrime(currentTerm)) {
+            currentTerm++;
         }
-        return this.currentTerm;
+        return currentTerm;
     }
 }
