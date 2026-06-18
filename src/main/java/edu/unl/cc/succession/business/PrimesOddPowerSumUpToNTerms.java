@@ -5,7 +5,7 @@ import edu.unl.cc.succession.common.SuccessionBase;
 /**
  * Serie 5
  * Representa la serie de primos elevados a numeros impares hasta n terminos
- * S = 1^1 + 3^3 + 5^5 + 7^7 + 11^9 + ...
+ * S = 2^1 + 3^3 + 5^5 + 7^7 + 11^9 + ...
  * @author kisalo (Kiara Condoy)
  **/
 
@@ -15,6 +15,10 @@ public class PrimesOddPowerSumUpToNTerms extends SuccessionBase {
         super(boundaryValue);
     }
 
+    /**
+     * Meth
+     * @return
+     */
     @Override
     public Number calculate() {
         long result = 0;
@@ -24,9 +28,7 @@ public class PrimesOddPowerSumUpToNTerms extends SuccessionBase {
         while (terms < boundaryValue){
             this.seriesText.append(currentTerm).append("^")
                     .append(exponent);
-                    if (terms < boundaryValue - 1) {
-                        seriesText.append(" + ");
-                    }
+
             result += (long) Math.pow(currentTerm,exponent);
             currentTerm = nextTerm(currentTerm).intValue();
             exponent+=2;
@@ -48,11 +50,5 @@ public class PrimesOddPowerSumUpToNTerms extends SuccessionBase {
             this.currentTerm++;
         }
         return this.currentTerm;
-    }
-
-
-    @Override
-    public String print() {
-        return this.seriesText.toString();
     }
 }
