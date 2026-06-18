@@ -5,7 +5,7 @@ import edu.unl.cc.succession.common.SuccessionBase;
 /**
  * Serie 2
  * Representa la serie de numeros primos elevados al cubo hasta un limite de valor.
- * S = 1^3 + 2^3 + 3^3 + 5^3 + ... + N
+ * S = 2^3 + 3^3 + 5^3 + ... + N
  * @author TheJavier37 (Javier Guarnizo)
  */
 public class CubicPrimesSumUpToLimit extends SuccessionBase {
