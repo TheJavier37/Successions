@@ -3,6 +3,10 @@ package edu.unl.cc.succession.common;
 import edu.unl.cc.succession.model.Printable;
 import edu.unl.cc.succession.model.Successionable;
 
+/**
+ * @author Darío Chillogallo, Kiara Condoy, Javier Guarnizo, Domenica Narvaez y José Valencia
+ */
+
 public abstract class SuccessionBase implements Successionable, Printable {
     protected Integer boundaryValue;
     protected Integer currentTerm;
@@ -19,15 +23,11 @@ public abstract class SuccessionBase implements Successionable, Printable {
         this.seriesText = new StringBuilder("S = ");
     }
 
-    public SuccessionBase() {
-
-    }
-
     protected Integer validateInput(Number value, String label) {
-        if (value == null) {
+        if  (value == null) {
             throw new IllegalArgumentException(label + " cannot be null");
         }
-        if (value instanceof Integer) {
+        if  (value instanceof Integer) {
             if (value.intValue() < 0) {
                 throw new IllegalArgumentException(label + " cannot be negative");
             }
@@ -41,7 +41,7 @@ public abstract class SuccessionBase implements Successionable, Printable {
         if (number < 2) {
             return false;
         }
-        for (int i = 2; i < Math.sqrt(number); i++) {
+        for (int i = 2; i <= Math.sqrt(number); i++) {
             if (number % i == 0) {
                 return false;
             }
@@ -60,11 +60,7 @@ public abstract class SuccessionBase implements Successionable, Printable {
     @Override
     public abstract Number nextTerm(Number current);
 
-    /**
-     * Metodo abstracto para obtener la representacion en texto de la serie.
-     * Al no llevar llaves ni codigo, obliga a cada clase hija a implementar su propia logica.
-     * @return La cadena de caracteres que representa la serie.
-     */
     @Override
     public abstract String print();
 }
+
