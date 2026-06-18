@@ -96,13 +96,13 @@ public class SuccessionExecutor {
                     case 9:
                         System.out.print("Ingrese el limite de valor para la serie de primos elevados a la raiz cuadrada: ");
                         int sqrtPrimeLimit = input.nextInt();
-                        serie = new SquareRootPrimeSeriesUpToLimit(sqrtPrimeLimit);
+                        serie = new PrimesSquareRootSumUpToLimit(sqrtPrimeLimit);
                         break;
 
                     case 10:
                         System.out.print("Ingrese el limite de valor para la serie de primos: ");
                         int simplePrimeLimit = input.nextInt();
-                        serie = new PrimeSeriesUpToLimit(simplePrimeLimit);
+                        serie = new PrimesSumUpToLimit(simplePrimeLimit);
                         break;
 
                     case 0:

@@ -1,4 +1,5 @@
 package edu.unl.cc.succession.business;
+
 import edu.unl.cc.succession.common.SuccessionBase;
 
 /**
@@ -8,26 +9,28 @@ import edu.unl.cc.succession.common.SuccessionBase;
  * @author js_valencia (Jose Valencia)
  *
  */
-public class PrimeSeriesUpToLimit extends NumericLimitSuccession {
+public class PrimesSumUpToLimit extends SuccessionBase {
 
-    public PrimeSeriesUpToLimit(Integer limit) {
+    public PrimesSumUpToLimit(Integer limit) {
         this(1, limit);
     }
 
-    public PrimeSeriesUpToLimit(Integer start, Integer limit) {
-        start = validateLimit(start, "Down limit");
-        setLimit(limit);
+    public PrimesSumUpToLimit(Integer start, Integer limit) {
+        super(limit);
+        start = validateInput(start, "Down limit");
         this.currentTerm = nextTerm(start - 1).intValue();
-        this.printableTerms = new StringBuilder("S = ");
     }
 
     @Override
     public Number calculate() {
         long result = 0;
-        while (this.currentTerm <= this.limit) {
-            this.printableTerms.append(this.currentTerm)
+
+        while (this.currentTerm <= this.boundaryValue) {
+            this.seriesText.append(this.currentTerm)
                     .append(" + ");
+
             result += this.currentTerm;
+
             this.currentTerm = this.nextTerm(this.currentTerm).intValue();
         }
         return result;
@@ -47,17 +50,5 @@ public class PrimeSeriesUpToLimit extends NumericLimitSuccession {
             }
         }
         return current;
-    }
-
-    private boolean isPrime(Integer number) {
-        if (number <= 1) {
-            return false;
-        }
-        for (int i = 2; i <= Math.sqrt(number); i++) {
-            if (number % i == 0) {
-                return false;
-            }
-        }
-        return true;
     }
 }
