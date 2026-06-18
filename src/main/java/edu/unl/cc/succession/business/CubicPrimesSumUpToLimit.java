@@ -77,13 +77,12 @@ public class CubicPrimesSumUpToLimit extends SuccessionBase {
 
     /**
      * Obtiene la representacion en cadena de texto de la serie cubica de primos generada.
-     * Devuelve la secuencia de operaciones formateadas acumuladas en la clase base.
-     *
+     * Extrae de forma directa el contenido acumulado en el buffer local.
      * @return Cadena de caracteres que representa visualmente el desarrollo matemático.
      */
     @Override
     public String print() {
-        return super.print();
+        return this.seriesText != null ? this.seriesText.toString() : "";
     }
 }
 

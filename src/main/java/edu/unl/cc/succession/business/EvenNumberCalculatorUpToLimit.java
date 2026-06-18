@@ -64,12 +64,11 @@ public class EvenNumberCalculatorUpToLimit extends SuccessionBase {
 
     /**
      * Obtiene la representacion en cadena de texto de la serie de numeros pares generada.
-     * Devuelve el contenido acumulado en el buffer de texto formateado.
-     *
+     * Extrae de forma directa el contenido acumulado en el buffer local.
      * @return Cadena de texto que detalla los terminos de la sucesion.
      */
     @Override
     public String print() {
-        return super.print();
+        return this.seriesText != null ? this.seriesText.toString() : "";
     }
 }

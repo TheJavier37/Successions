@@ -61,13 +61,10 @@ public abstract class SuccessionBase implements Successionable, Printable {
     public abstract Number nextTerm(Number current);
 
     /**
-     * Implementacion por defecto del metodo print.
-     * Al no ser abstracto, las clases hijas pueden usarlo directamente o heredar su comportamiento.
-     *
+     * Metodo abstracto para obtener la representacion en texto de la serie.
+     * Al no llevar llaves ni codigo, obliga a cada clase hija a implementar su propia logica.
      * @return La cadena de caracteres que representa la serie.
      */
     @Override
-    public String print() {
-        return this.seriesText != null ? this.seriesText.toString() : "";
-    }
+    public abstract String print();
 }
