@@ -23,10 +23,6 @@ public abstract class SuccessionBase implements Successionable, Printable {
         this.seriesText = new StringBuilder("S = ");
     }
 
-    public SuccessionBase() {
-
-    }
-
     protected Integer validateInput(Number value, String label) {
         if  (value == null) {
             throw new IllegalArgumentException(label + " cannot be null");
