@@ -9,6 +9,8 @@ import edu.unl.cc.succession.business.OddPoweredPrimeSeriesUpToNTerms;
 import edu.unl.cc.succession.business.EvenRootPrimeSeriesUpToLimit;
 import edu.unl.cc.succession.model.Printable;
 import edu.unl.cc.succession.model.Successionable;
+import edu.unl.cc.succession.business.PrimeNumberWithPowCalculatorWithTerm;
+import edu.unl.cc.succession.business.PrimesCubicRootSumUpToNTerms;
 
 /**
  * Menu interactivo para ejecutar las diferentes sucesiones numericas
@@ -31,6 +33,8 @@ public class SuccessionExecutor {
             System.out.println("4. Serie de primos elevados por pares hasta un limite");
             System.out.println("5. Serie de primos elevados a impares hasta N terminos");
             System.out.println("6. Serie de primos elevados a la raiz de numeros pares hasta un limite");
+            System.out.println("7. Serie de primos elevados a la raiz de numeros impares hasta N terminos");
+            System.out.println("8. Serie de primos elevados a la raiz cubica hasta N terminos");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opcion: ");
 
@@ -84,6 +88,18 @@ public class SuccessionExecutor {
                         serie = new EvenRootPrimeSeriesUpToLimit(evenRootLimit);
                         break;
                         **/
+
+                    case 7:
+                        System.out.print("Ingrese la cantidad de terminos (N) para la serie de primos con raices impares: ");
+                        int oddRootTerms = input.nextInt();
+                        serie = new PrimeNumberWithPowCalculatorWithTerm(oddRootTerms);
+                        break;
+
+                    case 8:
+                        System.out.print("Ingrese la cantidad de terminos (N) para la serie de primos con raiz cubica: ");
+                        int cubicRootTerms = input.nextInt();
+                        serie = new PrimesCubicRootSumUpToNTerms(cubicRootTerms);
+                        break;
 
                     case 0:
                         System.out.println("Saliendo del sistema. ¡Hasta luego!");

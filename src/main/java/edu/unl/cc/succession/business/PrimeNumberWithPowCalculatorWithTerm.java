@@ -39,11 +39,6 @@ public class PrimeNumberWithPowCalculatorWithTerm extends SuccessionBase {
         return result;
     }
 
-    /**
-     * Representar el término solo de la base de la serir
-     * @param current
-     * @return
-     */
     @Override
     public Number nextTerm(Number current) {
         int next = current.intValue() + 1;
