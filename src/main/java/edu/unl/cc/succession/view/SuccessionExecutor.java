@@ -7,6 +7,8 @@ import edu.unl.cc.succession.business.CubedPrimeSeriesUpToNTerms;
 import edu.unl.cc.succession.business.EvenPoweredPrimeSeriesUpToLimit;
 import edu.unl.cc.succession.business.OddPoweredPrimeSeriesUpToNTerms;
 import edu.unl.cc.succession.business.EvenRootPrimeSeriesUpToLimit;
+import edu.unl.cc.succession.business.SquareRootPrimeSeriesUpToLimit;
+import edu.unl.cc.succession.business.PrimeSeriesUpToLimit;
 import edu.unl.cc.succession.model.Printable;
 import edu.unl.cc.succession.model.Successionable;
 import edu.unl.cc.succession.business.PrimeNumberWithPowCalculatorWithTerm;
@@ -35,6 +37,8 @@ public class SuccessionExecutor {
             System.out.println("6. Serie de primos elevados a la raiz de numeros pares hasta un limite");
             System.out.println("7. Serie de primos elevados a la raiz de numeros impares hasta N terminos");
             System.out.println("8. Serie de primos elevados a la raiz cubica hasta N terminos");
+            System.out.println("9. Serie de primos elevados a la raiz cuadrada hasta un limite");
+            System.out.println("10. Serie de primos hasta un limite");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opcion: ");
 
@@ -89,6 +93,18 @@ public class SuccessionExecutor {
                         System.out.print("Ingrese la cantidad de terminos (N) para la serie de primos con raiz cubica: ");
                         int cubicRootTerms = input.nextInt();
                         serie = new PrimesCubicRootSumUpToNTerms(cubicRootTerms);
+                        break;
+
+                    case 9:
+                        System.out.print("Ingrese el limite de valor para la serie de primos elevados a la raiz cuadrada: ");
+                        int sqrtPrimeLimit = input.nextInt();
+                        serie = new SquareRootPrimeSeriesUpToLimit(sqrtPrimeLimit);
+                        break;
+
+                    case 10:
+                        System.out.print("Ingrese el limite de valor para la serie de primos: ");
+                        int simplePrimeLimit = input.nextInt();
+                        serie = new PrimeSeriesUpToLimit(simplePrimeLimit);
                         break;
 
                     case 0:
