@@ -20,7 +20,7 @@ public class PrimesEvenRootSumUpToLimit extends SuccessionBase {
         long result = 0;
         int exponentDenominator = 2;
         final double exponentNumerator = 1;
-        double currentValue =  Math.pow(nextTerm(1).intValue(), exponentNumerator/exponentDenominator);
+        double currentValue =  Math.pow(currentTerm, exponentNumerator / exponentDenominator);
 
         while (currentValue<boundaryValue){
             this.seriesText.append(currentTerm).append("^(")
@@ -30,7 +30,7 @@ public class PrimesEvenRootSumUpToLimit extends SuccessionBase {
             result += (long)currentValue;
             currentTerm = nextTerm(currentTerm).intValue();
             exponentDenominator += 2;
-            currentValue = Math.pow(currentTerm,exponentNumerator/exponentDenominator);
+            currentValue = Math.pow(currentTerm, exponentNumerator / exponentDenominator);
 
         }
 
@@ -39,11 +39,10 @@ public class PrimesEvenRootSumUpToLimit extends SuccessionBase {
 
     @Override
     public Number nextTerm(Number current) {
-        this.currentTerm = current.intValue() + 1;
-
-        while (!isPrime(this.currentTerm)) {
-            this.currentTerm++;
+        int value = current.intValue() + 1;
+        while (!isPrime(value)) {
+            value++;
         }
-        return this.currentTerm;
+        return value;
     }
 }
