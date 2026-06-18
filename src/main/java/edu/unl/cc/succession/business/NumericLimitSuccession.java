@@ -35,6 +35,10 @@ public abstract class NumericLimitSuccession implements Successionable, Printabl
 
     @Override
     public String print() {
-        return this.printableTerms.toString();
+        String s = this.printableTerms.toString();
+        if (s.endsWith(" + ")) {
+            s = s.substring(0, s.length() - 3);
+        }
+        return s;
     }
 }

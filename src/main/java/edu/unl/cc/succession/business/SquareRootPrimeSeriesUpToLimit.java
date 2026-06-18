@@ -22,16 +22,15 @@ public class SquareRootPrimeSeriesUpToLimit extends NumericLimitSuccession {
     @Override
     public Number calculate() {
         double result = 0;
-        double rootedValue = Math.sqrt(this.currentTerm);
 
-        while (rootedValue <= this.limit) {
+        while (this.currentTerm <= this.limit) {
+            double rootedValue = Math.sqrt(this.currentTerm);
             this.printableTerms.append(this.currentTerm)
                     .append("^(1/2) + ");
 
             result += rootedValue;
 
             this.currentTerm = this.nextTerm(this.currentTerm).intValue();
-            rootedValue = Math.sqrt(this.currentTerm);
         }
         return result;
     }
