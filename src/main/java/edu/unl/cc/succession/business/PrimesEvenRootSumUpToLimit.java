@@ -5,36 +5,43 @@ import edu.unl.cc.succession.common.SuccessionBase;
 /**
  * Serie 6
  * Representa la serie de numeros primos elevados a la raiz de numeros pares hasta un limite
- * S = 1^(1/2) + 3^(1/4) + 5^(1/6) + 7^(1/8) + ... + N
+ * S = 2^(1/2) + 3^(1/4) + 5^(1/6) + 7^(1/8) + ...
  * @author kisalo (Kiara Condoy)
  **/
-
 public class PrimesEvenRootSumUpToLimit extends SuccessionBase {
 
     public PrimesEvenRootSumUpToLimit(boolean isPrime, Integer boundaryValue) {
         super(boundaryValue, isPrime);
+
+        if (this.currentTerm < 2) {
+            this.currentTerm = 2;
+        }
     }
 
     @Override
     public Number calculate() {
-        long result = 0;
+        double sum = 0.0;
         int exponentDenominator = 2;
-        final double exponentNumerator = 1;
-        double currentValue =  Math.pow(currentTerm, exponentNumerator / exponentDenominator);
+        final double exponentNumerator = 1.0;
 
-        while (currentValue<boundaryValue){
-            this.seriesText.append(currentTerm).append("^(")
-                    .append(exponentNumerator).append("/")
-                    .append(exponentDenominator).append(" + ");
+        while (this.currentTerm <= this.boundaryValue) {
 
-            result += (long)currentValue;
-            currentTerm = nextTerm(currentTerm).intValue();
+            double currentValue = Math.pow(this.currentTerm, exponentNumerator / exponentDenominator);
+
+            if (sum > 0) {
+                this.seriesText.append(" + ");
+            }
+            this.seriesText.append(this.currentTerm).append("^(")
+                    .append((int)exponentNumerator).append("/")
+                    .append(exponentDenominator).append(")");
+
+            sum += currentValue;
+
+            this.currentTerm = nextTerm(this.currentTerm).intValue();
             exponentDenominator += 2;
-            currentValue = Math.pow(currentTerm, exponentNumerator / exponentDenominator);
-
         }
 
-        return result;
+        return sum;
     }
 
     @Override
