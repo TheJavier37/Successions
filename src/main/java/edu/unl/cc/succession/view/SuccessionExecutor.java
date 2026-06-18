@@ -1,14 +1,10 @@
 package edu.unl.cc.succession.view;
 
 import java.util.Scanner;
-import edu.unl.cc.succession.business.EvenNumberCalculatorUpToLimit;
-import edu.unl.cc.succession.business.CubicPrimesSumUpToLimit;
-import edu.unl.cc.succession.business.SquareRootPrimeSeriesUpToLimit;
-import edu.unl.cc.succession.business.PrimeSeriesUpToLimit;
+
+import edu.unl.cc.succession.business.*;
 import edu.unl.cc.succession.model.Printable;
 import edu.unl.cc.succession.model.Successionable;
-import edu.unl.cc.succession.business.PrimeNumberWithPowCalculatorWithTerm;
-import edu.unl.cc.succession.business.PrimesCubicRootSumUpToNTerms;
 
 /**
  * Menu interactivo para ejecutar las diferentes sucesiones numericas
@@ -74,20 +70,16 @@ public class SuccessionExecutor {
                          **/
 
                     case 5:
-                        /**
                         System.out.print("Ingrese la cantidad de terminos (N) para la serie de primos con potencias impares: ");
                         int oddPowerTerms = input.nextInt();
-                        serie = new OddPoweredPrimeSeriesUpToNTerms(oddPowerTerms);
+                        serie = new PrimesOddPowerSumUpToNTerms(oddPowerTerms);
                         break;
-                         **/
 
                     case 6:
-                        /**
                         System.out.print("Ingrese el limite de valor para la serie de primos con raices pares: ");
                         int evenRootLimit = input.nextInt();
-                        serie = new EvenRootPrimeSeriesUpToLimit(evenRootLimit);
+                        serie = new PrimesEvenRootSumUpToLimit(evenRootLimit);
                         break;
-                        **/
 
                     case 7:
                         System.out.print("Ingrese la cantidad de terminos (N) para la serie de primos con raices impares: ");
@@ -118,7 +110,7 @@ public class SuccessionExecutor {
                         exit = true;
                         break;
 
-                    /**
+                    /*
                      * Desarrolladores NeoCores encargados: Completar la integracion en el menu
                      * para los casos restantes desde la serie 7 hasta la serie 10.
                      */

@@ -15,21 +15,10 @@ public class PrimesEvenRootSumUpToLimit extends SuccessionBase {
         super(boundaryValue);
     }
 
-    @Override
-    protected Integer validateInput(Number value, String label) {
-        return super.validateInput(value, label);
-    }
-
-    @Override
-    protected boolean isPrime(Integer number) {
-        return super.isPrime(number);
-    }
-
-    @Override
-    public void setLimit(Number limit) {
-        super.setLimit(limit);
-    }
-
+    /**
+     * 
+     * @return
+     */
     @Override
     public Number calculate() {
         long result = 0;
