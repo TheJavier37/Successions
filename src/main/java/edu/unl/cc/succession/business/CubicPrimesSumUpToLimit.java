@@ -7,13 +7,11 @@ import edu.unl.cc.succession.common.SuccessionBase;
  * Representa la serie de numeros primos elevados al cubo hasta un limite de valor.
  * S = 1^3 + 2^3 + 3^3 + 5^3 + ... + N
  * @author TheJavier37 (Javier Guarnizo)
- *
  */
 public class CubicPrimesSumUpToLimit extends SuccessionBase {
 
     /**
      * Constructor por defecto que inicializa la serie de primos desde el numero uno.
-     *
      * @param limit El valor numerico maximo que puede alcanzar el resultado del cubo de un primo.
      */
     public CubicPrimesSumUpToLimit(Integer limit) {
@@ -22,11 +20,11 @@ public class CubicPrimesSumUpToLimit extends SuccessionBase {
 
     /**
      * Constructor sobrecargado que permite definir un valor inicial para la busqueda de primos.
-     *
      * @param start El numero entero inicial desde el cual comenzara la secuencia prima.
      * @param limit El valor numerico maximo que puede alcanzar el resultado del cubo de un primo.
      */
     public CubicPrimesSumUpToLimit(Integer start, Integer limit) {
+        super();
         start = validateInput(start, "Down limit");
         setLimit(limit);
         this.currentTerm = nextTerm(start - 1).intValue();
@@ -36,7 +34,6 @@ public class CubicPrimesSumUpToLimit extends SuccessionBase {
     /**
      * Realiza la iteracion y acumulacion de la suma de los primos elevados al cubo.
      * Controla el freno del bucle evaluando si la potencia resulta menor o igual a la frontera.
-     *
      * @return El resultado total de la suma de las potencias cubicas.
      */
     @Override
@@ -55,7 +52,6 @@ public class CubicPrimesSumUpToLimit extends SuccessionBase {
     /**
      * Evalua secuencialmente los siguientes numeros enteros para encontrar el proximo primo.
      * Utiliza el metodo de validacion centralizado en la clase madre para comprobar la primalidad.
-     *
      * @param current El valor del primo actual.
      * @return El siguiente numero primo valido dentro del orden logico.
      */

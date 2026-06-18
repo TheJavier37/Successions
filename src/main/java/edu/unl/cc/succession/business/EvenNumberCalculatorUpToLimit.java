@@ -7,13 +7,11 @@ import edu.unl.cc.succession.common.SuccessionBase;
  * Representa la serie de numeros pares hasta un limite de valor.
  * S = 2 + 4 + 6 + 8 + ... + N
  * @author TheJavier37 (Javier Guarnizo)
- *
  */
 public class EvenNumberCalculatorUpToLimit extends SuccessionBase {
 
     /**
      * Constructor por defecto que inicializa la serie de numeros pares desde cero.
-     *
      * @param limit El valor maximo permitido para los terminos de la serie.
      */
     public EvenNumberCalculatorUpToLimit(Integer limit) {
@@ -22,7 +20,6 @@ public class EvenNumberCalculatorUpToLimit extends SuccessionBase {
 
     /**
      * Constructor sobrecargado que permite definir el punto de inicio de la serie.
-     *
      * @param start El valor entero desde donde comenzara a buscarse el primer termino.
      * @param limit El valor maximo permitido para los terminos de la serie.
      */
@@ -37,7 +34,6 @@ public class EvenNumberCalculatorUpToLimit extends SuccessionBase {
     /**
      * Realiza el bucle de calculo sumando los numeros pares de la secuencia.
      * El proceso se detiene cuando el termino actual supera el valor frontera establecido.
-     *
      * @return La suma acumulada de todos los terminos validos generados.
      */
     @Override
@@ -53,7 +49,6 @@ public class EvenNumberCalculatorUpToLimit extends SuccessionBase {
 
     /**
      * Calcula analiticamente cual es el siguiente numero par consecutivo.
-     *
      * @param current El termino par actual sobre el cual se calculara el siguiente.
      * @return El numero entero par inmediatamente posterior.
      */
