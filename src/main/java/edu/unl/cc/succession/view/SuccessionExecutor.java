@@ -55,9 +55,15 @@ public class SuccessionExecutor {
                         break;
 
                     case 3:
+                        System.out.println("Ingrese la cantidad de terminos (N), para la serie de primos elevados al cubo");
+                        int NTermCubicPrime = readSecureInt(input);
+                        if (NTermCubicPrime != -1) serie = new CubicPrimesSumUpToNTerms(2, NTermCubicPrime);
                         break;
 
                     case 4:
+                        System.out.println("Ingrese el limite del valor para la serie de primos elevados a potencias pares hasta un limite");
+                        int primePoweredToEven = readSecureInt(input);
+                        if (primePoweredToEven != -1) serie = new PrimesEvenPowerSumUpToLimit(2, primePoweredToEven);
                         break;
 
                     case 5:
