@@ -18,15 +18,25 @@ public class CubicPrimesSumUpToLimit extends SuccessionBase {
 
     @Override
     public Number calculate() {
-        long result = 0;
-        long cubedValue = (long) Math.pow(this.currentTerm, 3);
-        while (cubedValue <= this.boundaryValue) {
-            this.seriesText.append(this.currentTerm).append("^3").append(" + ");
-            result += cubedValue;
-            this.currentTerm = this.nextTerm(this.currentTerm).intValue();
-            cubedValue = (long) Math.pow(this.currentTerm, 3);
+        int sum = 0;
+        Integer term = this.currentTerm;
+
+        while (term <= this.boundaryValue) {
+            int cubicValue = (int) Math.pow(term, 3);
+
+            if (sum + cubicValue > this.boundaryValue) {
+                break;
+            }
+
+            sum += cubicValue;
+            this.seriesText.append(term).append("^3 + ");
+
+            term = nextTerm(term).intValue();
         }
-        return result;
+
+        this.currentTerm = term;
+
+        return sum;
     }
 
     @Override
