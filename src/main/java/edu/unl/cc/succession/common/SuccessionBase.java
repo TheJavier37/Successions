@@ -24,10 +24,10 @@ public abstract class SuccessionBase implements Successionable, Printable {
     }
 
     protected Integer validateInput(Number value, String label) {
-        if  (value == null) {
+        if (value == null) {
             throw new IllegalArgumentException(label + " cannot be null");
         }
-        if  (value instanceof Integer) {
+        if (value instanceof Integer) {
             if (value.intValue() < 0) {
                 throw new IllegalArgumentException(label + " cannot be negative");
             }
@@ -60,7 +60,22 @@ public abstract class SuccessionBase implements Successionable, Printable {
     @Override
     public abstract Number nextTerm(Number current);
 
+    /**
+     * Obtiene la representacion en cadena de texto de la serie generada,
+     * limpiando el signo "+" sobrante del final de forma automatica.
+     *
+     * @return Cadena de caracteres formateada limpiamente.
+     */
     @Override
-    public abstract String print();
+    public String print() {
+        if (this.seriesText != null && this.seriesText.length() > 4) {
+            String text = this.seriesText.toString();
+            if (text.endsWith(" + ")) {
+                return text.substring(0, text.length() - 3);
+            }
+            return text;
+        }
+        return this.seriesText != null ? this.seriesText.toString() : "";
+    }
 }
 

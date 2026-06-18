@@ -2778,7 +2778,7 @@
 											"model": {
 												"$ref": "AAAAAAGe15z9HhLkEm0="
 											},
-											"font": "Arial;13;0",
+											"font": "Arial;13;2",
 											"parentStyle": true,
 											"left": 1077,
 											"top": 481,
@@ -5399,7 +5399,7 @@
 											"model": {
 												"$ref": "AAAAAAGe15z9HhLkEm0="
 											},
-											"font": "Arial;13;2",
+											"font": "Arial;13;0",
 											"parentStyle": true,
 											"left": 109,
 											"top": 371,
@@ -6440,8 +6440,7 @@
 																	"type": "String",
 																	"direction": "return"
 																}
-															],
-															"isAbstract": true
+															]
 														}
 													],
 													"isAbstract": true
