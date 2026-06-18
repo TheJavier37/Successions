@@ -16,8 +16,8 @@ public class PrimesEvenRootSumUpToLimit extends SuccessionBase {
     }
 
     /**
-     * 
-     * @return
+     * Method that calculates primes even root sum up to a limit
+     * @return the sum
      */
     @Override
     public Number calculate() {
@@ -36,9 +36,6 @@ public class PrimesEvenRootSumUpToLimit extends SuccessionBase {
             exponentDenominator += 2;
             currentValue = Math.pow(currentTerm,exponentNumerator/exponentDenominator);
 
-            if (seriesText.length() >= 3) {
-                seriesText.setLength(seriesText.length() - 3);
-            }
         }
 
         return result;
@@ -57,10 +54,5 @@ public class PrimesEvenRootSumUpToLimit extends SuccessionBase {
             this.currentTerm++;
         }
         return this.currentTerm;
-    }
-
-    @Override
-    public String print() {
-        return this.seriesText.toString();
     }
 }
