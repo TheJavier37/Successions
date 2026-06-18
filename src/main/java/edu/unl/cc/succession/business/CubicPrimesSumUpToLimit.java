@@ -10,16 +10,8 @@ import edu.unl.cc.succession.common.SuccessionBase;
  */
 public class CubicPrimesSumUpToLimit extends SuccessionBase {
 
-    public CubicPrimesSumUpToLimit(Integer limit) {
-        this(1, limit);
-    }
-
     public CubicPrimesSumUpToLimit(Integer start, Integer limit) {
-        super(limit);
-
-        if (start < 2) {
-            start = 2;
-        }
+        super(2,limit);
         start = validateInput(start, "Down limit");
         this.currentTerm = nextTerm(start - 1).intValue();
     }

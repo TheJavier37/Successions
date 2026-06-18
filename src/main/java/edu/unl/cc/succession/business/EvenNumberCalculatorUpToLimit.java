@@ -10,12 +10,8 @@ import edu.unl.cc.succession.common.SuccessionBase;
  */
 public class EvenNumberCalculatorUpToLimit extends SuccessionBase {
 
-    public EvenNumberCalculatorUpToLimit(Integer limit) {
-        this(0, limit);
-    }
-
     public EvenNumberCalculatorUpToLimit(Integer start, Integer limit) {
-        super(limit);
+        super(0,limit);
         start = validateInput(start, "Down limit");
         this.currentTerm = nextTerm(start).intValue();
     }

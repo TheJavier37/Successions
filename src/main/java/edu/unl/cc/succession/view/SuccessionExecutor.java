@@ -42,13 +42,13 @@ public class SuccessionExecutor {
                     case 1:
                         System.out.print("Ingrese el limite para la serie de numeros pares: ");
                         int evenLimit = input.nextInt();
-                        serie = new EvenNumberCalculatorUpToLimit(evenLimit);
+                        serie = new EvenNumberCalculatorUpToLimit(0, evenLimit);
                         break;
 
                     case 2:
                         System.out.print("Ingrese el limite de valor para la serie de primos al cubo: ");
                         int cubicPrimeLimit = input.nextInt();
-                        serie = new CubicPrimesSumUpToLimit(cubicPrimeLimit);
+                        serie = new CubicPrimesSumUpToLimit(2, cubicPrimeLimit);
                         break;
 
                     case 3:
