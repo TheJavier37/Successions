@@ -22,24 +22,18 @@ public class CubicPrimesSumUpToLimit extends SuccessionBase {
         Integer term = this.currentTerm;
 
         while (term <= this.boundaryValue) {
-            // 1. Calculamos el cubo del primo actual antes de sumarlo
             int cubicValue = (int) Math.pow(term, 3);
 
-            // 2. FRENO CONTROLADO: Si este cubo individual supera el limite maximo,
-            // o si al sumarlo nos pasamos de la meta, detenemos el bucle de inmediato.
             if (cubicValue > this.boundaryValue || (sum + cubicValue) > this.boundaryValue) {
                 break;
             }
 
-            // 3. Si es seguro, se añade a la suma y al texto de la serie
             sum += cubicValue;
             this.seriesText.append(term).append("^3 + ");
 
-            // 4. Buscamos el siguiente numero primo
             term = nextTerm(term).intValue();
         }
 
-        // Guardamos la posicion del ultimo termino evaluado
         this.currentTerm = term;
 
         return sum;
