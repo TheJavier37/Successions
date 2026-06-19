@@ -12,10 +12,6 @@ public class PrimesEvenRootSumUpToLimit extends SuccessionBase {
 
     public PrimesEvenRootSumUpToLimit(boolean isPrime, Integer boundaryValue) {
         super(boundaryValue, isPrime);
-
-        if (this.currentTerm < 2) {
-            this.currentTerm = 2;
-        }
     }
 
     @Override
